@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifesto>
+  <meta>
+    <título></título>
+    <subtítulo></subtítulo>
+    <data>AAAA-MM-DD</data>
+    <autor>
+      <nome>José Pedro Fernandes</nome>
+      <id>PG50525</id>
+      <gitlink>https://github.com/jpdiasfernandes/RPCW2023</gitlink>
+    </autor>
+    <uc>Representação e Processamento de Conhecimento na Web</uc>
+  </meta>
+  <resumo>
+    <p> Para o TPC1 adicionou-se as ligações entre cidades ao ficheiro gerado em html</p>
+    <p> Ainda no TPC1 foi ainda criado um ficheiro html, usando css e javascript (não de autoria própria), cujo tópico era o Holofote. A página contém factos simples e uma definição de um Holofote. A parte engraçada é que a própria página é observada através de um efeito que tenta simular um holofote. </p>
+  </resumo>
+  <resultados>
+    <resultado path="gera.py"> Redireciona para o stdout a página html gerada através do dataset das cidades e ligações.</resultado>
+    <resultado path="holofote.html"> Ficheiro html que apresenta factos sobre o holofote. </resultado>
+  </resultados>
+
+</manifesto>

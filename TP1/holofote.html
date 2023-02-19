@@ -1,0 +1,89 @@
+<!doctype html>
+    <head> 
+        <!-- Autoria https://morioh.com/p/f07ce07c9ff8 -->
+        <style>
+            #flashlight {
+              --Xpos: 50vw;
+              --Ypos: 50vh;
+            }
+            #flashlight:before {
+              content: "";
+              display: block;
+              width: 100%;
+              height: 100%;
+              position: fixed;
+              background: radial-gradient(
+                circle 16em at var(--Xpos) var(--Ypos),
+                rgba(0, 0, 0, 0),
+                rgba(0, 0, 0, 1)
+              );
+            }
+        </style>
+        <style>
+            body{
+                margin: 0px;
+            }
+            div {
+                height: 100%;
+            }
+            
+        </style>
+       <title>
+            Holofote factos interessantes
+        </title>
+        <meta charset="UTF-16"/>
+    </head>
+    <body>
+        
+        <div id="flashlight">
+        </div>
+        
+        <!-- Autoria https://morioh.com/p/f07ce07c9ff8 -->
+        <script>
+            let mouseX = 0;
+            let mouseY = 0;
+            let flashlight = document.getElementById("flashlight");
+            
+            //Detect touch device
+            const isTouchDevice = () => {
+              try {
+                //We try to create TouchEvent(it would fail for desktops and throw error)
+                document.createEvent("TouchEvent");
+                return true;
+              } catch (e) {
+                return false;
+              }
+            };
+            
+            function getMousePosition(e) {
+              mouseX = !isTouchDevice() ? e.pageX : e.touches[0].pageX;
+              mouseY = !isTouchDevice() ? e.pageY : e.touches[0].pageY;
+            
+              flashlight.style.setProperty("--Xpos", mouseX + "px");
+              flashlight.style.setProperty("--Ypos", mouseY + "px");
+            }
+            
+            document.addEventListener("mousemove", getMousePosition);
+            document.addEventListener("touchmove", getMousePosition);
+        </script>
+ 
+        <div style="text-align:center;">
+            <h1> Factos sobre o Holofote</h1>
+            <h3> <b> Definição </b> </h3>
+            <p> É uma fonte de luz extremamente brilhante, que, aliada a um refletor parabólico é capaz de lançar raios de luz paralelos numa determinada direção. De seguida pode-se ver um exemplo visual de um holofote.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/The_Auxiliary_Territorial_Service_in_the_United_Kingdom_1939_-_1945_H36315.jpg/800px-The_Auxiliary_Territorial_Service_in_the_United_Kingdom_1939_-_1945_H36315.jpg" width="50%" 
+            alt="A figura apresenta um holofote e dois operadores a treinarem para o uso de um holofote de 90 centímetros" >
+            
+            <h3> <b> Usos de holofotes </b> </h3>
+            <ul>
+                <li> Farol de praia </li>
+                <li> Iluminação de estádios </li>
+                <li> Iluminação de espaços vigiados <i> (ex. prisões) </i> </li>
+                <li> Beacons de luz para anunciar que um estabelicimento está aberto <i> (ex. discotecas) </i> </li>
+                <li> Identificar objetos no céu <i> (ex. Segunda Guerra Mundial) </i> </li>
+            </ul>
+        </div>
+        
+
+    </body>
+</html>
