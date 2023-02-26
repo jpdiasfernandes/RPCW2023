@@ -20,6 +20,25 @@ pagweb = """
     <head>
         <meta charset="utf-8">
         <title>ArqueoSítios Index</title>
+        <script type="text/javascript">
+
+         // Wait for the page to load first
+         window.onload = function() {
+
+             //Get a reference to the link on the page
+             // with an id of "mylink"
+             var links = document.getElementsByClassName("link");
+
+             for(var i = 0; i < links.length; i++) {
+                 var link = links[i]
+                 var iframe = document.getElementById("frame");
+                 link.onclick = function() {
+                     iframe.src = this.href
+                     return false;
+                 }
+             }
+         }
+        </script>
     </head>
     <body>
         <table width = "100%">
@@ -44,7 +63,7 @@ for elem in elems:
         id = id[0]
         pagweb += f"""
                         <li>
-                            <a href="/porta/{count}"> {id} </a>
+                            <a href="/porta/{count}" class="link"> {id} </a>
                         </li>
 """
 
@@ -52,7 +71,7 @@ pagweb += """
                     </ul>
                 </td>
                 <td width="80%">
-                    <p> Resto da data </p>
+                    <iframe src="" id="frame" title="XML embebido" style="height:100vh;display:block;width:100%;"></iframe>
                 </td>
             </tr>
         </table>
