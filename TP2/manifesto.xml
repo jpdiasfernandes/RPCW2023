@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifesto>
+  <meta>
+    <título>TP2</título>
+    <subtítulo>Servidor node.js para disponibilização de informação de arqueossítios</subtítulo>
+    <data>2023-02-26</data>
+    <autor>
+      <nome>José Pedro Fernandes</nome>
+      <id>PG50525</id>
+      <gitlink>https://github.com/jpdiasfernandes/RPCW2023/TP2</gitlink>
+    </autor>
+    <uc>Representação e Processamento de Conhecimento na Web</uc>
+  </meta>
+  <resumo>
+    <p> O ficheiro gera_elems.py é responsável pela criação dos ficheiros xml para cada arqueossítio. O formato do nome do ficheiro gerado é do tipo arq1.xml. O conteúdo do ficheiro inclui os conteúdos e as tags dos filhos da tag ARQELEM, assim como a própria tag, pretendida.  </p>
+    <p> Este último ficheiro é ainda responsável pela escrita no stdout do ficheiro index.html que será usado pelo servidor node. Para a criação do ficheiro index.html basta fazer "python gera_elems.py > index.html". </p>
+    <p> Por fim, o ficheiro servidor.js é o código do servidor node. Para pedidos cujo o path é a root é enviado o ficheiro "index.html". Quando o pedido é feito com um path do tipo /porta/2 é enviado, neste caso o ficheiro arqfiles/arq2.xml para o cliente. São feitas algumas verificações em relação ao conteúdo do path do pedido.</p>
+  </resumo>
+  <resultados>
+    <resultado path="gera_elems.py"> Cria ficheiros xml na diretoria arqfiles e redireciona para stdout o index.html</resultado>
+    <resultado path="servidor.js"> Servidor node que responde ao path "/" e a pedidos do tipo "/porta/num" </resultado>
+  </resultados>
+</manifesto>
