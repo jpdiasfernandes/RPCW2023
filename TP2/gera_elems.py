@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
+import os
 from bs4 import BeautifulSoup
 with open("arq.xml") as fp:
     soup = BeautifulSoup(fp, 'xml')
 
 #print(soup)
+
+if not os.path.exists("arqfiles"):
+    os.makedirs("arqfiles")
 
 count = 0
 elems = soup.findAll('ARQELEM')
