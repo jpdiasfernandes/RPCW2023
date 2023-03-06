@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifesto>
+  <meta>
+    <título>TP3</título>
+    <subtítulo>Servidor node.js para navegação de datasets de pessoas </subtítulo>
+    <data>2023-03-6</data>
+    <autor>
+      <nome>José Pedro Fernandes</nome>
+      <id>PG50525</id>
+      <gitlink>https://github.com/jpdiasfernandes/RPCW2023</gitlink>
+    </autor>
+    <uc>Representação e Processamento de Conhecimento na Web</uc>
+  </meta>
+  <resumo>
+    <p> O ficheiro pessoas_server.js é responsável pelo código do servidor node. É responsável por responder a vários tipos de pedidos. Como por exemplo pedidos para aceder a informações específicas de um utilizador e informaçãoes sobre distribuições da população </p>
+    <p> O ficheiro mypages.js é importado no ficheiro pessoar_server.js e é utilizado para gerar documentos html com informação personalizada para certos tipos de pedidos</p>
+    <p> Por fim, o ficheiro package.json é responsável por enumerar as depências que o projeto node necessita de instalar</p>
+  </resumo>
+  <resultados>
+    <resultado path="mypages.js"> Cria documentos html personalizados pertinente para certos pedidos do servidor</resultado>
+    <resultado path="pessoas_server.js"> Servidor node </resultado>
+    <resultado path="package.json"> Ficheiro com dependências do projeto node</resultado>
+    <resultado path="dataset-extra1.json"> Dataset de pessoas </resultado>
+    <resultado path="w3.css"> Ficheiro com o css da framework W3CSS </resultado>
+
+  </resultados>
+</manifesto>
