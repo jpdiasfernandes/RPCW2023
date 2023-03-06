@@ -236,4 +236,4 @@ http.createServer(function(req, res){
     }
 }).listen(6201)
 
-console.log("Servidor à escuta na porta 7777...")
+console.log("Servidor à escuta na porta 6201...")
