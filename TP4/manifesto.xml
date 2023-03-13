@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifesto>
+  <meta>
+    <título>TP4</título>
+    <subtítulo>Servidor node.js para a realização de uma página TODO com formulários </subtítulo>
+    <data>2023-03-13</data>
+    <autor>
+      <nome>José Pedro Fernandes</nome>
+      <id>PG50525</id>
+      <gitlink>https://github.com/jpdiasfernandes/RPCW2023</gitlink>
+    </autor>
+    <uc>Representação e Processamento de Conhecimento na Web</uc>
+  </meta>
+  <resumo>
+    <p> O ficheiro server.js é responsável pelo código do servidor node. É responsável por responder a vários tipos de pedidos do tipo GET e do tipo POST. Uma vez que o objetivo era fazer tudo numa página só se espera responder a pedidos com o url "/".</p>
+    <p> O layout é responsivo utilizando a framework W3CSS para criar rows com divs e colunas dentro das rows.</p>
+    <p> O ficheiro template.js contém os templates para a página. </p>
+    <p> Por fim, o ficheiro package.json é responsável por enumerar as depências que o projeto node necessita de instalar</p>
+  </resumo>
+  <resultados>
+    <resultado path="server.js"> Atende a resultados do formulário e devolve uma página todo na root page.</resultado>
+    <resultado path="template.js"> Ficheiro com templates </resultado>
+    <resultado path="package.json"> Ficheiro com dependências do projeto node</resultado>
+    <resultado path="todo.json"> Base de dados com as tarefas </resultado>
+    <resultado path="w3.css"> Ficheiro com o css da framework W3CSS </resultado>
+
+  </resultados>
+</manifesto>
