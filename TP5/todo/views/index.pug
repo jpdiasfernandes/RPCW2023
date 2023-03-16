@@ -6,9 +6,10 @@ block content
       h1 Todo
     
     .w3-row
-      form.w3-content.w3-container(method="POST")
+      form.w3-content.w3-container(method="POST" action="/")
         input.w3-input.w3-round(type="hidden" name="id" value=(list.length + 1))
         input.w3-input.w3-round(type="hidden" name="estado" value="todo")
+        input.w3-input.w3-round(type="hidden" name="action" value="add")
         fieldset 
           legend O quê?
           input.w3-input.w3-round(type="text" name="nome")
@@ -33,16 +34,18 @@ block content
               .w3-col(style="width:20%")
                 p #{t.quando}
               .w3-col(style="width:15%")
-                form(method="POST" action="/update")
+                form(method="POST" action="/")
                   input(type="hidden" name="id" value=t.id)
                   input(type="hidden" name="nome" value=t.nome)
                   input(type="hidden" name="quem" value=t.quem)
                   input(type="hidden" name="quando" value=t.quando)
                   input(type="hidden" name="estado" value="done")
+                  input(type="hidden" name="action" value="update")
                   button.w3-btn.w3-teal.w3-mb-2(type="submit") Done
               .w3-rest
-               form(method="POST" action="/delete")
+               form(method="POST" action="/")
                 input(type="hidden" name="id" value=t.id)
+                input(type="hidden" name="action" value="delete")
                 button.w3-btn.w3-teal.w3-mb-2(type="submit") X
 
       .w3-half.w3-container
@@ -57,16 +60,18 @@ block content
               .w3-col(style="width:20%")
                 p #{t.quando}
               .w3-col(style="width:15%")
-                form(method="POST" action="/update")
+                form(method="POST" action="/")
                   input(type="hidden" name="id" value=t.id)
                   input(type="hidden" name="nome" value=t.nome)
                   input(type="hidden" name="quem" value=t.quem)
                   input(type="hidden" name="quando" value=t.quando)
                   input(type="hidden" name="estado" value="todo")
+                  input(type="hidden" name="action" value="update")
                   button.w3-btn.w3-teal.w3-mb-2(type="submit") Undo
               .w3-rest
-               form(method="POST" action="/delete")
+               form(method="POST" action="/")
                 input(type="hidden" name="id" value=t.id)
+                input(type="hidden" name="action" value="delete")
                 button.w3-btn.w3-teal.w3-mb-2(type="submit") X
 
     footer.w3-container.w3-teal
