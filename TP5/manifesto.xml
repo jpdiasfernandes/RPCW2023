@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifesto>
+  <meta>
+    <título>TP5</título>
+    <subtítulo>Servidor node.js com recurso a express de uma página TODO com formulários </subtítulo>
+    <data>2023-03-16</data>
+    <autor>
+      <nome>José Pedro Fernandes</nome>
+      <id>PG50525</id>
+      <gitlink>https://github.com/jpdiasfernandes/RPCW2023</gitlink>
+    </autor>
+    <uc>Representação e Processamento de Conhecimento na Web</uc>
+  </meta>
+  <resumo>
+    <p>O objetivo deste TPC era a conversão do último TPC para utilizar a framework express. Desta forma obter um workflow mais organizado e permitir lidar com pedidos http de forma mais prática. </p>
+    <p> Fez-se um "emagrecimento" de várias funcionalidades não necessárias para o trabalho. Como retirar o uso de cookie parser e remoção de código exemplo criado pelo comando npx </p>
+    <p> Criou-se uma pasta controllers que contém a lógica de negócio relevante à informação de todo/tarefas. No ficheiro todo.js é possível encontrar uma função que devolve uma lista de todas as tarefas existentas na base de dados. Uma função que adiciona uma tarefa, outra que atualiza e, por fim, uma que apaga uma tarefa da base de dados. </p>
+    <p> No lado da view, fez-se a conversão do template criado no último TPC, em HTML, para pug. Fez-se ainda mudanças na forma como se apresentou os dados. Adicionou-se para cada coluna de tarefas (por fazer e feitas) uma linha que continha os dados da tarefa em questão. Essa linha era ainda dividida por colunas. Esta layout foi feita através do recurso às rows e columns responsivas da framework W3.css. </p>
+    <p> Um problema enfrentado foi, visto que o objetivo era ter uma aplicação de uma só página, o facto de haver vários pedidos POST com a mesma ação. Isto poderia ser ultrapassado caso se adicionasse uma ação diferente, por exemplo /update quando se pretendia fazer uma ação de update. Desta forma no index.js poderiamos esperar um pedido post com o path /update. No entanto, caso se fizesse um update, o caminho atual seria /update. Uma ação seguida, por exemplo /add, iria invocar uma ação concatenada com a anterior, ou seja, /update/add. É possível que exista um método de caminho absoluto para ultrapassar este problema. No entanto, a minha solução foi passar a ação pelo formulário. De seguida, fazer match da ação, remover a ação do corpo do body do formulário e chamar as devidas função de lógica de negócio com o body como argumento. Esta solução permite agora fazer várias ações seguidas sem a necessidade de voltar à "root" da página. </p>
+  </resumo>
+  <resultados>
+    <resultado path="todo/controllers/todo.js"> Lógica de negócios sobre tarefas.</resultado>
+    <resultado path="todo/routes/index.js"> Callbacks definidas das várias routes suportadas pela servidor.</resultado>
+    <resultado path="todo/views/index.pug"> Ficheiro com o template da página principal em pug </resultado>
+    <resultado path="todo/package.json"> Ficheiro com dependências do projeto node</resultado>
+    <resultado path="db/todo.json"> Base de dados com as tarefas </resultado>
+    <resultado path="todo/public/stylesheets/w3.css"> Ficheiro com o css da framework W3CSS </resultado>
+    <resultado path="todo/app.js"> Ficheiro gerado pelo npx com remoção do cookieParser </resultado>
+  </resultados>
+</manifesto>
