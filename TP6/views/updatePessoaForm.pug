@@ -1,0 +1,191 @@
+extends layout 
+block content 
+
+    .w3-card-4
+        header.w3-container.w3-purple
+            h2 Pessoa Form
+            .script
+                console.log(pessoa)
+        form.w3-container(method="POST" action="/pessoas/edit")
+            fieldset
+                legend Metadata
+                label Id
+                input.w3-input.w3-round(type="text" name="id" readonly value=s.id)
+                label Nome
+                input.w3-input.w3-round(type="text" name="nome" value=s.nome)
+                label Idade
+                input.w3-input.w3-round(type="number" name="idade" value=s.idade)
+                label Sexo
+                input.w3-input.w3-round(type="text" name="sexo" value=s.sexo)
+                label BI
+                input.w3-input.w3-round(type="text" name="BI" value=s.BI)
+                label CC
+                input.w3-input.w3-round(type="text" name="CC" value=s.CC)
+                label descrição
+                input.w3-input.w3-round(type="text" name="descrição" value=s.descrição)
+            fieldset 
+                legend Morada
+                label Cidade
+                input.w3-input.w3-round(type="text" name="cidade" value=s.cidade)
+                label Distrito
+                input.w3-input.w3-round(type="text" name="distrito" value=s.distrito)
+            fieldset 
+                legend Enquadramento social
+                label Profissão
+                input.w3-input.w3-round(type="text" name="profissao" value=s.profissao)
+                label Abreviatura Nome Partido
+                input.w3-input.w3-round(type="text" name="party_abbr" value=s.party_abbr)
+                label Nome Partido
+                input.w3-input.w3-round(type="text" name="party_name" value=s.party_name)
+                label Religião     
+                input.w3-input.w3-round(type="text" name="religiao" value=s.religiao)
+                label Marca carro que possui
+                input.w3-input.w3-round(type="text" name="marca_carro" value=s.marca_carro)
+            fieldset#desportos
+                legend Desportos que pratica ou que gosta
+                label Desporto
+                each desporto in s.desportos
+                    input.w3-input.w3-round(type="text" name="desportos" value=desporto)
+                a.w3-btn.w3-purple.w3-mb-2(onclick="addField(\"text\", \"desportos\", \"desportos\")") +
+            fieldset#animais
+                legend Animais que tem ou favoritos
+                label Animal
+                each animal in s.animais
+                    input.w3-input.w3-round(type="text" name="animais" value=animal)
+                a.w3-btn.w3-purple.w3-mb-2(onclick="addField('text', 'animais', 'animais')") +
+            fieldset#figura_publica
+                legend Figura políticas portuguesas que segue
+                label Figura política
+                each figura in s.figura_publica_pt
+                    input.w3-input.w3-round(type="text" name="figura_publica_pt" value=figura)
+                a.w3-btn.w3-purple.w3-mb-2(onclick="addField('text', 'figura_publica_pt', 'figura_publica')") +
+            fieldset#destinos_favoritos
+                legend Destinos favorito
+                label Destino favorito
+                each destino in s.destinos_favoritos
+                    input.w3-input.w3-round(type="text" name="destinos_favoritos" value=destino)
+                a.w3-btn.w3-purple.w3-mb-2(onclick="addField('text', 'destinos_favoritos', 'destinos_favoritos')") +
+            fieldset
+                legend É fumador 
+                label Verdadeiro
+                if s.atributos.fumador == true
+                    input.w3-input.w3-round(type="radio" value="true" name="fumador" checked)
+                else 
+                    input.w3-input.w3-round(type="radio" value="true" name="fumador")
+                
+                label Falso
+                if s.atributos.fumador == false
+                    input.w3-input.w3-round(type="radio" value="false" name="fumador" checked)
+                else 
+                    input.w3-input.w3-round(type="radio" value="false" name="fumador")
+
+            fieldset
+                legend Gosta de cinema
+                label Verdadeiro
+                if s.atributos.gosta_cinema == true
+                    input.w3-input.w3-round(type="radio" value="true" name="gosta_cinema" checked)
+                else 
+                    input.w3-input.w3-round(type="radio" value="true" name="gosta_cinema")
+                
+                label Falso
+                if s.atributos.gosta_cinema == false
+                    input.w3-input.w3-round(type="radio"  value="false" name="gosta_cinema" checked)
+                else
+                    input.w3-input.w3-round(type="radio"  value="false" name="gosta_cinema")
+            fieldset 
+                legend Gosta de Viajar
+                label Verdadeiro
+                if s.atributos.gosta_viajar == true
+                    input.w3-input.w3-round(type="radio" value="true" name="gosta_viajar" checked)
+                else 
+                    input.w3-input.w3-round(type="radio" value="true" name="gosta_viajar")
+                
+
+
+                label Falso
+                if s.atributos.gosta_viajar == false
+                    input.w3-input.w3-round(type="radio" value="false" name="gosta_viajar" checked)
+                else
+                    input.w3-input.w3-round(type="radio" value="false" name="gosta_viajar")
+            fieldset
+                legend Acorda cedo
+                label Verdadeiro
+                if s.atributos.acorda_cedo == true
+                    input.w3-input.w3-round(type="radio" value="true" name="acorda_cedo" checked)
+                else
+                    input.w3-input.w3-round(type="radio" value="true" name="acorda_cedo")
+                label Falso
+                if s.atributos.acorda_cedo == false
+                    input.w3-input.w3-round(type="radio" value="false" name="acorda_cedo" checked)
+                else
+                    input.w3-input.w3-round(type="radio" value="false" name="acorda_cedo")
+            fieldset 
+                legend Gosta de ler
+                label Verdadeiro
+                if s.atributos.gosta_ler == true
+                    input.w3-input.w3-round(type="radio" value="true" name="gosta_ler" checked)
+                else
+                    input.w3-input.w3-round(type="radio" value="true" name="gosta_ler")
+                label Falso
+                if s.atributos.gosta_ler == false
+                    input.w3-input.w3-round(type="radio" value="false" name="gosta_ler" checked)
+                else
+                    input.w3-input.w3-round(type="radio" value="false" name="gosta_ler")
+            fieldset
+                legend Gosta de música
+                label Verdadeiro
+                if s.atributos.gosta_musica == true
+                    input.w3-input.w3-round(type="radio" value="true" name="gosta_musica" checked)
+                else
+                    input.w3-input.w3-round(type="radio" value="true" name="gosta_musica")
+                label Falso
+                if s.atributos.gosta_musica == false
+                    input.w3-input.w3-round(type="radio" value="false" name="gosta_musica" checked)
+                else
+                    input.w3-input.w3-round(type="radio" value="false" name="gosta_musica")
+            fieldset
+                legend Gosta de comer
+                label Verdadeiro
+                if s.atributos.gosta_comer == true
+                    input.w3-input.w3-round(type="radio" value="true" name="gosta_comer" checked)
+                else
+                    input.w3-input.w3-round(type="radio" value="true" name="gosta_comer")
+                label Falso
+                if s.atributos.gosta_comer == false
+                    input.w3-input.w3-round(type="radio" value="false" name="gosta_comer" checked)
+                else
+                    input.w3-input.w3-round(type="radio" value="false" name="gosta_comer")
+            fieldset
+                legend Gosta de animais de estimação 
+                label Verdadeiro
+                if s.atributos.gosta_animais_estimacao == true
+                    input.w3-input.w3-round(type="radio" value="true" name="gosta_animais_estimacao" checked)
+                else
+                    input.w3-input.w3-round(type="radio" value="true" name="gosta_animais_estimacao")
+                
+                label Falso
+                if s.atributos.gosta_animais_estimacao == false
+                    input.w3-input.w3-round(type="radio" value="false" name="gosta_animais_estimacao" checked)
+                else
+                    input.w3-input.w3-round(type="radio" value="false" name="gosta_animais_estimacao")
+            fieldset
+                legend Gosta de dançar
+                label Verdadeiro
+                if s.atributos.gosta_dancar == true
+                    input.w3-input.w3-round(type="radio" value="true" name="gosta_dancar" checked)
+                else
+                    input.w3-input.w3-round(type="radio" value="true" name="gosta_dancar")
+                label Falso
+                
+                if s.atributos.gosta_dancar == false
+                    input.w3-input.w3-round(type="radio" value="false" name="gosta_dancar" checked)
+                else
+                    input.w3-input.w3-round(type="radio" value="false" name="gosta_dancar")
+            fieldset
+                legend Comida favorita
+                input.w3-input.w3-round(type="text" name="comida_favorita")
+
+            button.w3-btn.w3-purple.w3-mb-2(type="submit") Add
+               
+        footer.w3-container.w3-purple
+            h5 Generated by EngWeb2023 in #{d} - [#[a(href="/") Return]]

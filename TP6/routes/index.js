@@ -33,11 +33,11 @@ router.get('/pessoas/:idPessoa', function(req, res, next) {
 });
 
 /* GET Student Update Form. */
-router.get('/alunos/edit/:idPessoa', function(req, res, next) {
+router.get('/pessoas/edit/:idPessoa', function(req, res, next) {
   var data = new Date().toISOString().substring(0, 16)
-  Pessoa.getAluno(req.params.idPessoa)
-    .then(aluno => {
-      res.render('updatePessoaForm', {a: aluno, d: data})
+  Pessoa.getPessoa(req.params.idPessoa)
+    .then(pessoa => {
+      res.render('updatePessoaForm', {s: pessoa, d: data})
     })
     .catch(erro => {
       res.render('error', {error: erro, message: "Erro na obtenção do registo de aluno"})
@@ -80,11 +80,11 @@ router.post('/pessoas/registo', (req,res) => {
 })
 
 // POST Student Update Form
-router.post('/alunos/edit', (req,res) => {
+router.post('/pessoas/edit', (req,res) => {
   var data = new Date().toISOString().substring(0, 16)
-  Pessoa.updateAluno(req.body)
-    .then(aluno => {
-      res.render('updateAlunoConfirm', {a: aluno})
+  Pessoa.updatePessoa(req.body)
+    .then(pessoa => {
+      res.render('updateAlunoConfirm', {s: pessoa})
     })
     .catch(erro => {
       res.render('error', {error: erro, message: "Erro na alteração do registo de aluno"})
