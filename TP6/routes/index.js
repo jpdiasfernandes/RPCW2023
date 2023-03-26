@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
       res.render('index', { slist: pessoas, d: data });
     })
     .catch(erro => {
-      res.render('error', {error: erro, message: "Erro na obtenção da lista de alunos"})
+      res.render('error', {error: erro, message: "Erro na obtenção da lista de Pessoas"})
     })
 });
 
@@ -28,7 +28,7 @@ router.get('/pessoas/:idPessoa', function(req, res, next) {
       res.render('pessoa', { s: pessoa, d: data });
     })
     .catch(erro => {
-      res.render('error', {error: erro, message: "Erro na obtenção do registo de aluno"})
+      res.render('error', {error: erro, message: "Erro na obtenção do registo da pessoa"})
     })
 });
 
@@ -40,30 +40,30 @@ router.get('/pessoas/edit/:idPessoa', function(req, res, next) {
       res.render('updatePessoaForm', {s: pessoa, d: data})
     })
     .catch(erro => {
-      res.render('error', {error: erro, message: "Erro na obtenção do registo de aluno"})
+      res.render('error', {error: erro, message: "Erro na obtenção do registo da pessoa"})
     })
 });
 
 /* GET Student Delete Form. */
-router.get('/alunos/delete/:idPessoa', function(req, res, next) {
+router.get('/pessoas/delete/:idPessoa', function(req, res, next) {
   var data = new Date().toISOString().substring(0, 16)
-  Pessoa.getAluno(req.params.idPessoa)
-    .then(aluno => {
-      res.render('deleteAlunoForm', {a: aluno, d: data})
+  Pessoa.getPessoa(req.params.idPessoa)
+    .then(pessoa => {
+      res.render('deletePessoaForm', {s: pessoa, d: data})
     })
     .catch(erro => {
-      res.render('error', {error: erro, message: "Erro na obtenção do registo de aluno"})
+      res.render('error', {error: erro, message: "Erro na obtenção do registo da pessoa"})
     })
 });
 
 /* GET Delete Confirmation */
-router.get('/alunos/delete/:idPessoa/confirm', (req,res)=>{
-  Pessoa.deleteAluno(req.params.idPessoa)
+router.get('/pessoas/delete/:idPessoa/confirm', (req,res)=>{
+  Pessoa.deletePessoa(req.params.idPessoa)
     .then(resposta => {
       res.redirect('/')
     })
     .catch(erro => {
-      res.render('error', {error: erro, message: "Erro na obtenção do registo de aluno"})
+      res.render('error', {error: erro, message: "Erro na obtenção do registo da pessoa"})
     })
 })
 
@@ -71,8 +71,8 @@ router.get('/alunos/delete/:idPessoa/confirm', (req,res)=>{
 router.post('/pessoas/registo', (req,res) => {
   var data = new Date().toISOString().substring(0, 16)
   Pessoa.addPessoa(req.body)
-    .then(aluno => {
-      res.render('addAlunoConfirm', {a: aluno})
+    .then(pessoa => {
+      res.render('addPessoaConfirm', {s: pessoa})
     })
     .catch(erro => {
       res.render('error', {error: erro, message: "Erro no armazenamento do registo de aluno"})
@@ -84,7 +84,7 @@ router.post('/pessoas/edit', (req,res) => {
   var data = new Date().toISOString().substring(0, 16)
   Pessoa.updatePessoa(req.body)
     .then(pessoa => {
-      res.render('updateAlunoConfirm', {s: pessoa})
+      res.render('updatePessoaConfirm', {s: pessoa})
     })
     .catch(erro => {
       res.render('error', {error: erro, message: "Erro na alteração do registo de aluno"})
