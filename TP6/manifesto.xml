@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifesto>
+  <meta>
+    <título>TP6</título>
+    <subtítulo>Aplicação CRUD em express com recurso a MongoDB</subtítulo>
+    <data>2023-03-26</data>
+    <autor>
+      <nome>José Pedro Fernandes</nome>
+      <id>PG50525</id>
+      <gitlink>https://github.com/jpdiasfernandes/RPCW2023</gitlink>
+    </autor>
+    <uc>Representação e Processamento de Conhecimento na Web</uc>
+  </meta>
+  <resumo>
+    <p>O objetivo deste TPC era criação duma aplicação CRUD sobre pessoas.</p>
+  </resumo>
+  <resultados>
+    <resultado path="controllers/pessoa.js"> Lógica de negócios sobre pessoas.</resultado>
+    <resultado path="routes/index.js"> Callbacks definidas das várias routes suportadas pelo servidor.</resultado>
+    <resultado path="views"> Pasta com os templates para a página principal, perfil de uma pessoa, formulários de edição e de apagar. Contém ainda templates para a confirmação de certos pedidos, como edição e adição de pessoas.</resultado>
+    <resultado path="package.json"> Ficheiro com dependências do projeto node</resultado>
+    <resultado path="pessoas.json"> Base de dados com as tarefas </resultado>
+    <resultado path="public/stylesheets/w3.css"> Ficheiro com o css da framework W3CSS </resultado>
+    <resultado path="public/javascripts/helper.js"> Ficheiro com uma função handler para o evento de adicionar um campo de inpu </resultado>
+    <resultado path="app.js"> Ficheiro gerado pelo npx. Contém também a ligação inicial à base de dados </resultado>
+    <resultado path="models/pessoa.js"> Ficheiro com o código para a realização de queries e inserção de pessoas, através do mongoose para a base de dados.</resultado>
+  </resultados>
+</manifesto>
