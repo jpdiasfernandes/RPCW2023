@@ -5,8 +5,8 @@ var pessoasModel =  pessoa.pessoasModel
 // Student list
 module.exports.list = () => {
     return pessoasModel.find()
-            .sort({nome: 1})
             .then(resp => {
+                console.log(resp)
                 return resp
             })
             .catch(erro => {
@@ -16,12 +16,13 @@ module.exports.list = () => {
 
 module.exports.getPessoa = id => {
     return pessoasModel.findOne({id : id})
-            .then(pessoa => {
+            .then( pessoa => {
                 return pessoa
             })
-            .catch(err => {
-                return erro
+            .catch( err => {
+                console.log(err)
             })
+
 }
 
 module.exports.addPessoa = a => {

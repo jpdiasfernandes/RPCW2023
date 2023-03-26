@@ -4,6 +4,21 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var mongoose = require('mongoose')
+
+var mongoDB = 'mongodb://127.0.0.1/aulas'
+
+mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true})
+
+var db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'Erro na conexão na conexão'))
+db.once('open',  function() {
+    console.log("Liguei ao MongoDB")
+})
+
+
+
 var indexRouter = require('./routes/index');
 
 var app = express();

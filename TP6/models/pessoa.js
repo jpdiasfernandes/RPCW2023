@@ -1,4 +1,6 @@
 const { default: mongoose } = require("mongoose")
+const dataJson = require('../pessoas.json');
+
 
 var moradaSchema = new mongoose.Schema({
     cidade : String,
@@ -46,3 +48,5 @@ var pessoaSchema = new mongoose.Schema({
 
 var pessoasModel 
 module.exports.pessoasModel = mongoose.model('pessoas', pessoaSchema)
+
+

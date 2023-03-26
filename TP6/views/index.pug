@@ -16,10 +16,19 @@ block content
         each s in slist
           tr
             td= s.id
-            td
-              a(href="/pessoas/"+s.id)= s.nome
-            td= s.idade
-            td= s.morada.cidade
+            if s.nome
+              td
+                a(href="/pessoas/"+s.id)= s.nome
+            else 
+              td="-"
+            if s.idade
+              td=s.idade
+            else
+              td="-"
+            if s.morada && s.morada.cidade
+              td= s.morada.cidade
+            else
+              td="-" 
             td
               button.w3-btn.w3-round.w3-indigo.w3-margin-right 
                 a(href="/pessoas/edit/"+s.id) Edit

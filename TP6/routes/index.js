@@ -23,9 +23,9 @@ router.get('/pessoas/registo', function(req, res, next) {
 /* GET Student page. */
 router.get('/pessoas/:idPessoa', function(req, res, next) {
   var data = new Date().toISOString().substring(0, 16)
-  Pessoa.getAluno(req.params.idPessoa)
-    .then(aluno => {
-      res.render('aluno', { a: aluno, d: data });
+  Pessoa.getPessoa(req.params.idPessoa)
+    .then(pessoa => {
+      res.render('pessoa', { s: pessoa, d: data });
     })
     .catch(erro => {
       res.render('error', {error: erro, message: "Erro na obtenção do registo de aluno"})
@@ -68,9 +68,9 @@ router.get('/alunos/delete/:idPessoa/confirm', (req,res)=>{
 })
 
 // POST Student Form Data
-router.post('/alunos/registo', (req,res) => {
+router.post('/pessoas/registo', (req,res) => {
   var data = new Date().toISOString().substring(0, 16)
-  Pessoa.addAluno(req.body)
+  Pessoa.addPessoa(req.body)
     .then(aluno => {
       res.render('addAlunoConfirm', {a: aluno})
     })
