@@ -37,7 +37,7 @@ router.get('/alunos/edit/:idPessoa', function(req, res, next) {
   var data = new Date().toISOString().substring(0, 16)
   Pessoa.getAluno(req.params.idPessoa)
     .then(aluno => {
-      res.render('updateAlunoForm', {a: aluno, d: data})
+      res.render('updatePessoaForm', {a: aluno, d: data})
     })
     .catch(erro => {
       res.render('error', {error: erro, message: "Erro na obtenção do registo de aluno"})
