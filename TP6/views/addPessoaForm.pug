@@ -1,0 +1,123 @@
+extends layout 
+block content 
+
+    .w3-card-4
+        header.w3-container.w3-purple
+            h2 Pessoa Form
+        form.w3-container(method="POST")
+            fieldset
+                legend Metadata
+                label Id
+                input.w3-input.w3-round(type="text" name="id")
+                label Nome
+                input.w3-input.w3-round(type="text" name="nome")
+                label Idade
+                input.w3-input.w3-round(type="number" name="idade")
+                label Sexo
+                input.w3-input.w3-round(type="text" name="sexo")
+                label BI
+                input.w3-input.w3-round(type="text" name="BI")
+                label CC
+                input.w3-input.w3-round(type="text" name="CC")
+                label descrição
+                input.w3-input.w3-round(type="text" name="descrição")
+            fieldset 
+                legend Morada
+                label Cidade
+                input.w3-input.w3-round(type="text" name="cidade")
+                label Distrito
+                input.w3-input.w3-round(type="text" name="distrito")
+            fieldset 
+                legend Enquadramento social
+                label Profissão
+                input.w3-input.w3-round(type="text" name="profissao")
+                label Abreviatura Nome Partido
+                input.w3-input.w3-round(type="text" name="party_abbr")
+                label Nome Partido
+                input.w3-input.w3-round(type="text" name="party_name")
+                label Religião     
+                input.w3-input.w3-round(type="text" name="religiao")
+                label Marca carro que possui
+                input.w3-input.w3-round(type="text" name="marca_carro")
+            fieldset#desportos
+                legend Desportos que pratica ou que gosta
+                label Desporto
+                input.w3-input.w3-round(type="text" name="desportos")
+                a.w3-btn.w3-purple.w3-mb-2(onclick="addField(\"text\", \"desportos\", \"desportos\")") +
+            fieldset#animais
+                legend Animais que tem ou favoritos
+                label Animal
+                input.w3-input.w3-round(type="text" name="animais")
+                a.w3-btn.w3-purple.w3-mb-2(onclick="addField('text', 'animais', 'animais')") +
+            fieldset#figura_publica
+                legend Figura políticas portuguesas que segue
+                label Figura política
+                input.w3-input.w3-round(type="text" name="figura_publica_pt")
+                a.w3-btn.w3-purple.w3-mb-2(onclick="addField('text', 'figura_publica_pt', 'figura_publica')") +
+            fieldset#destinos_favoritos
+                legend Destinos favorito
+                label Destino favorito
+                input.w3-input.w3-round(type="text" name="destinos_favoritos")
+                a.w3-btn.w3-purple.w3-mb-2(onclick="addField('text', 'destinos_favoritos', 'destinos_favoritos')") +
+            fieldset
+                legend É fumador 
+                label Verdadeiro
+                input.w3-input.w3-round(type="radio" value="true" name="fumador")
+                label Falso
+                input.w3-input.w3-round(type="radio" value="false" name="fumador")
+            fieldset
+                legend Gosta de cinema
+                label Verdadeiro
+                input.w3-input.w3-round(type="radio" value="true" name="gosta_cinema")
+                label Falso
+                input.w3-input.w3-round(type="radio"  value="false" name="gosta_cinema")
+            fieldset 
+                legend Gosta de Viajar
+                label Verdadeiro
+                input.w3-input.w3-round(type="radio" value="true" name="gosta_viajar")
+                label Falso
+                input.w3-input.w3-round(type="radio" value="false" name="gosta_viajar")
+            fieldset
+                legend Acorda cedo
+                label Verdadeiro
+                input.w3-input.w3-round(type="radio" value="true" name="acorda_cedo")
+                label Falso
+                input.w3-input.w3-round(type="radio" value="false" name="acorda_cedo")
+            fieldset 
+                legend Gosta de ler
+                label Verdadeiro
+                input.w3-input.w3-round(type="radio" value="true" name="gosta_ler")
+                label Falso
+                input.w3-input.w3-round(type="radio" value="false" name="gosta_ler")
+            fieldset
+                legend Gosta de música
+                label Verdadeiro
+                input.w3-input.w3-round(type="radio" value="true" name="gosta_musica")
+                label Falso
+                input.w3-input.w3-round(type="radio" value="false" name="gosta_musica")
+            fieldset
+                legend Gosta de comer
+                label Verdadeiro
+                input.w3-input.w3-round(type="radio" value="true" name="gosta_comer")
+                label Falso
+                input.w3-input.w3-round(type="radio" value="false" name="gosta_comer")
+            fieldset
+                legend Gosta de animais de estimação 
+                label Verdadeiro
+                input.w3-input.w3-round(type="radio" value="true" name="gosta_animais_estimacao")
+                label Falso
+                input.w3-input.w3-round(type="radio" value="false" name="gosta_animais_estimacao")
+            fieldset
+                legend Gosta de dançar
+                label Verdadeiro
+                input.w3-input.w3-round(type="radio" value="true" name="gosta_dancar")
+                label Falso
+                Input.w3-input.w3-round(type="radio" value="false" name="gosta_dancar")
+            fieldset
+                legend Comida favorita
+                input.w3-input.w3-round(type="text" name="comida_favorita")
+
+            button.w3-btn.w3-purple.w3-mb-2(type="submit") Add
+               
+        footer.w3-container.w3-purple
+            h5 Generated by EngWeb2023 in #{d} - [#[a(href="/") Return]]
